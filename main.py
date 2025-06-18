@@ -351,7 +351,7 @@ async def take_a_post(message: Message) -> None:
                                                  caption=file_info[1])
         db.add_message(msg_info)
         if len(db.out_messages_to_forward(message.chat.id)) == 1:
-            add_c = f'<a href="t.me/{message.from_user.username}">{message.from_user.first_name}</a>'
+            add_c = f'<a href="tg://user?id={message.from_user.id}">{message.from_user.first_name}</a>'
             msgs_to_forward = await cooldown_timer_forward(0.1, message.chat.id)
             reply_data = serializers.OddRepliesData()
             failed_copy = True
